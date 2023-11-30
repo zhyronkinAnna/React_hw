@@ -1,0 +1,67 @@
+
+*{box-sizing: border-box}
+
+.main-wrapper{
+  max-width: 90%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.movie-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.movie-tile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.movie-tile img{
+  width: 250px;
+  border-radius: 20px;
+}
+
+.movie-tile p{
+  margin: 5px;
+  font-weight: 300;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.movie-search {margin-bottom: 20px;}
+
+.movie-search form{ 
+  display: flex;
+  flex-direction: row;
+  margin: 2%;
+  gap: 10px;
+}
+
+.movie-search button{
+  background-color: #2196F3;
+  border-color: transparent;
+  color: whitesmoke;
+}
+
+.movie-search button, .movie-search input {border-radius: 10px}
+
+
+.movie-description{
+  width: 250px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 0;
+  padding: 3px;
+}
+
+.movie-filter{
+  margin: 10px;
+}
