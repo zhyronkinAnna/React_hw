@@ -2,31 +2,38 @@
 import './ToDoList.css';
 
 import React, {useState } from "react";
+import { useEffect } from 'react';
 
 import ToDoAddForm from './ToDoAddForm';
 import ToDoFilter from './ToDoFilter';
 import ToDoItem from './ToDoItem';
 
-let items = [
-    {
-      id: 1,
-      title: "Eat",
-      done: true,
-    },
-    {
-      id: 2,
-      title: "Work",
-      done: true,
-    },
-    {
-      id: 3,
-      title: "Sport",
-      done: false,
-    },
-  ];
+// let items = [
+//     {
+//       id: 1,
+//       title: "Eat",
+//       done: true,
+//     },
+//     {
+//       id: 2,
+//       title: "Work",
+//       done: true,
+//     },
+//     {
+//       id: 3,
+//       title: "Sport",
+//       done: false,
+//     },
+//   ];
 
 const ToDoList = () => {
-  let [toDoItems, settoDoItems] = useState(items);
+  const items = JSON.parse(localStorage.getItem("items")) || [];
+  const [toDoItems, settoDoItems] = useState(items);
+  const [filter, setFilter] = useState("All");
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(toDoItems));
+  }, [toDoItems]);
 
   const addTask = (todoItem) => {
     const newItems = [...toDoItems, todoItem];
@@ -57,14 +64,22 @@ const ToDoList = () => {
     });
     settoDoItems(newTask);
   }
+
+  const FILTER_MAP = {
+    All : ()=> true,
+    Done: (task) => task.done,
+    ToDo: (task) => !task.done
+  };
+
     return (
         <div className='todo-list'>
             <h1>ToDo List</h1>
             <ToDoAddForm addTask={addTask}/>
             <div>
-                <ToDoFilter/>
+                <ToDoFilter FILTER_MAP={FILTER_MAP} setFilter={setFilter} filter={filter}/>
                 <div className='list'>
-                  {toDoItems.map((item) => <ToDoItem title={item.title} task={item} key={item.id} 
+                  {toDoItems.filter(FILTER_MAP[filter]).map((item) =>
+                  <ToDoItem title={item.title} task={item} key={item.id} 
                   toggleTaskDone={toggleTaskDone} deleteTask={deleteTask} editTask={editTask} />)}
                 </div>
             </div>
