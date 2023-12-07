@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import './MovieList.css';
 
 const MovieItem = ({item}) => {
 
@@ -22,7 +23,7 @@ const MovieItem = ({item}) => {
             { visible === true ? description : poster}
             <p>Title: {item.name}</p>
             <p>Year: {item.year}</p>
-            <button onClick={descripClickHandler}>{btnContent}</button>
+            <button onClick={descripClickHandler} className='movie-description-button'>{btnContent}</button>
         </div>
     );
 }

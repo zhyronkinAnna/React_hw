@@ -1,5 +1,12 @@
 
-*{box-sizing: border-box}
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url(./assests/gradientBackground.png);
+  color: white;
+}
 
 .main-wrapper{
   max-width: 90%;
@@ -17,16 +24,28 @@
 }
 
 .movie-tile{
+  border: solid 4px white;
+  width: 100%;
+  height: fit-content;
+  border-radius: 25px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: lightgray;
-  border-radius: 20px;
+  justify-items: center;
+  text-align: center;
+  gap: 10px;
   padding: 10px;
+
+  height: 100%;
+  grid-auto-columns: min-content;
+  grid-auto-rows: max-content;
 }
 
 .movie-tile img{
-  width: 250px;
+  width: 240px;
+  height: 320px;
+  object-fit: cover;
   border-radius: 20px;
 }
 
@@ -45,13 +64,13 @@
   gap: 10px;
 }
 
-.movie-search button{
+.movie-search button, .movie-description-button{
   background-color: #2196F3;
   border-color: transparent;
   color: whitesmoke;
 }
 
-.movie-search button, .movie-search input {border-radius: 10px}
+.movie-search button, .movie-search input, .movie-description-button, .movie-filter select, button {border-radius: 10px}
 
 
 .movie-description{
@@ -64,4 +83,8 @@
 
 .movie-filter{
   margin: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 15rem;
+  gap: 5px;
 }

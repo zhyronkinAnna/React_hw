@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { NavLink, useParams } from 'react-router-dom';
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -16,7 +17,9 @@ const UserList = () => {
 
     return (
         <div>
-            {users.map((user) => <p>{user.name}</p>)}
+            {users.map((user) => <p>
+                <NavLink to={`/userLister/${user.id}`}> <p>{user.name}</p></NavLink>
+            </p>)}
         </div>
     );
 }

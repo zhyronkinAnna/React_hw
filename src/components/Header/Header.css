@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-around;
+    background-color: cornflowerblue;
+}
+
+.header a{
+    all:unset;
+    padding: 20px;
+    cursor: default;
+}
+
+.header a:hover{
+  background-color: blue;
+  color: whitesmoke;
+}
+
+.header a.active{
+    background-color: blue;
+    color: whitesmoke;
+  }
+  

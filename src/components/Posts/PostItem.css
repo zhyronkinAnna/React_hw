@@ -1,0 +1,13 @@
+.post-container{
+    border: solid 1px lightgray;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.post-container p{
+    font-weight: bolder;
+    font-size: larger;
+}
