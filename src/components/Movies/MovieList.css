@@ -5,8 +5,6 @@
 
 body{
   background-image: url(./assests/gradientBackground.png);
-  background-repeat: no-repeat;
-  background-size: contain;
   color: white;
 }
 
