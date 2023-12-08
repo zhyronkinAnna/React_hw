@@ -1,17 +1,28 @@
 import React from 'react';
 import { Link, NavLink} from 'react-router-dom';
 import './Header.css';
+import ThemeContext from '../../context/ThemeContext';
+import { useContext } from 'react';
+import ModeNightIcon from '@mui/icons-material/ModeNight';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import classNames from 'classnames';
 
 const Header = () => {
+    const {theme, toggleTheme} = useContext(ThemeContext);
+    console.log(theme);
     return (
         // link or navLInk
-        <nav className='header'>
+      <div className={classNames({dark: theme === "dark"})}>
+          <nav className='header'>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/counter">Counter</NavLink>
             <NavLink to="/movieList">Movie</NavLink>
             <NavLink  to="/userList">Users</NavLink>
             <NavLink to="/posts">Posts</NavLink>
         </nav>
+
+        {theme === 'light' ? <ModeNightIcon onClick={toggleTheme}/> : <LightModeIcon onClick={toggleTheme}/>}
+      </div>
     );
 }
 
