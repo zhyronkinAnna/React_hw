@@ -18,6 +18,7 @@ const UserList = () => {
     }, []);
 
     const searchHandler = (e) =>{
+        console.log(e.target.value);
         setTextSearch(e.target.value);
         setSearch({ s: e.target.value });
     }
@@ -36,7 +37,7 @@ const UserList = () => {
 
             {users.filter(filterUsers).map((user) => (
                 <p>
-                <NavLink to={`/users/${user.id}`}>{user.name}</NavLink>
+                <NavLink to={`/userList/${user.id}`}>{user.name}</NavLink>
                 </p>
             ))}
 
