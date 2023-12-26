@@ -18,9 +18,12 @@ const Header = () => {
       <div className={classNames({dark: theme === "dark"})}>
           <nav className='header'>
             <NavLink to="/">Home</NavLink>
+            <NavLink to="/about-us">About us</NavLink>
+            <NavLink to="/callme">Call me</NavLink>
             <NavLink to="/counter">Counter</NavLink>
             <NavLink to="/movieList">Movie</NavLink>
-            <NavLink  to="/userList">Users</NavLink>
+            <NavLink to="/userList">Users</NavLink>
+            <NavLink to="/stepper">Stepper</NavLink>
             <NavLink to="/posts">Posts</NavLink>
             <NavLink to="/favorites">{count}<FavoriteIcon/></NavLink>
         </nav>
